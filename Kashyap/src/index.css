@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
@@ -113,4 +113,17 @@ All colors MUST be HSL.
   .elevated-shadow {
     box-shadow: var(--shadow-elevated);
   }
+
+  /* --- LEAFLET RULES MOVED OUTSIDE @layer --- */
+  /* Keep base styles specific to Leaflet popups OUTSIDE the layer */
+  /* Do NOT put them inside @layer base */
+}
+
+/* --- LEAFLET Z-INDEX FIX - Keep these rules HERE, at the end --- */
+.leaflet-popup-pane {
+  z-index: 1000 !important; /* Ensure popups are above most other elements */
+}
+
+.leaflet-tooltip-pane {
+  z-index: 900 !important; /* Also increase tooltip z-index if you use them */
 }

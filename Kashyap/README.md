@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+# Smart CRM: AI-Powered Crop Residue Management Platform 🚜
 
-## Project info
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) **Sustainable Farming, Smarter Monitoring.**
 
-**URL**: https://lovable.dev/projects/5301d7f3-3ebc-4865-b776-cf410b722f1e
+A mobile-first platform connecting farmers, Custom Hiring Centres (CHCs), and government agencies to efficiently manage Crop Residue Management (CRM) machinery in real-time, aiming to reduce stubble burning and promote sustainable agriculture in India.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🎯 Problem Statement
 
-**Use Lovable**
+Despite the distribution of numerous CRM machines, challenges like under-utilization, idle equipment, and lack of accountability persist, contributing to continued stubble burning. Smart CRM provides a technology-driven solution for transparent tracking, optimized usage, and data-driven policy insights.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5301d7f3-3ebc-4865-b776-cf410b722f1e) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Key Features
 
-**Use your preferred IDE**
+* **Machine Discovery:** Farmers can view nearby available CRM machines (Seeders, Balers, Harvesters, etc.) on an interactive map. 🗺️
+* **Smart Booking:** Book machines directly via the app or through local agents. Includes cost/time estimation. 📅
+* **Live Tracking:** Real-time location tracking of booked machines with ETA and status updates. 📍
+* **Agent Mode:** Enables local agents to facilitate bookings for farmers with limited digital access, supporting offline functionality. 🧑‍🌾
+* **Usage Analytics (for CHCs/Admins):** Dashboards displaying utilization rates, idle time, fuel efficiency, and policy heatmaps. 📊
+* **AI Recommendations (Demo):** Voice-based input allows farmers to describe their task (e.g., "plough 5 acres") and receive machine recommendations (frontend demo). 🧠
+* **Multilingual Support:** Currently supports English and Hindi. 🌐
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Technology Stack
 
-Follow these steps:
+* **Frontend Framework:** [React](https://reactjs.org/) (via [Vite](https://vitejs.dev/))
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **UI Library:** [Shadcn UI](https://ui.shadcn.com/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Routing:** [React Router](https://reactrouter.com/)
+* **State Management:** (Mention if using Zustand, Context API, etc. - currently uses React Context for Language)
+* **Mapping:** [React Leaflet](https://react-leaflet.js.org/)
+* **Speech Recognition:** Web Speech API (Browser built-in)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🚀 Getting Started
 
-# Step 3: Install the necessary dependencies.
-npm i
+Follow these steps to set up and run the project locally:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone <YOUR_REPOSITORY_URL>
+    cd <your_project_directory>
+    ```
 
-**Edit a file directly in GitHub**
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or yarn install
+    # or pnpm install
+    ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    # or yarn dev
+    # or pnpm dev
+    ```
+    The application should now be running, typically at `http://localhost:8080` (check your Vite config).
 
-**Use GitHub Codespaces**
+**How to Use:**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5301d7f3-3ebc-4865-b776-cf410b722f1e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1.  Replace `<YOUR_REPOSITORY_URL>` with the actual URL of your Git repository.
+2.  Replace `<your_project_directory>` with the name of the folder created after cloning.
+3.  Add a link to a screenshot or GIF if you have one.
+4.  Fill in or remove the optional "Contributing" and "License" sections as needed.
+5.  If you are using a specific state management library besides React Context (like Zustand, Redux), mention it in the Technology Stack.
+6.  Save this content as `README.md` in the root directory of your project.

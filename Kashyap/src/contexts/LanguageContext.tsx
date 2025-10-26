@@ -21,7 +21,8 @@ export const useLanguage = () => {
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem("app-language");
-    return (saved as Language) || "english";
+    // Ensure the saved value is either 'english' or 'hindi', default to 'english'
+    return saved === 'hindi' ? 'hindi' : 'english';
   });
 
   useEffect(() => {
@@ -33,7 +34,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    // Get the translations for the current language
+    const langTranslations = translations[language];
+    // Return the specific translation if found, otherwise return the key itself
+    return langTranslations?.[key] || key;
   };
 
   return (
@@ -72,13 +76,37 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Home
     "home.title": "Smart CRM",
-    "home.search": "Search machine type or nearby CHC",
+    "home.search": "Search machine type or nearby CHC", // Note: This might be deprecated if using recommendation input primarily
     "home.filterAll": "All Machines",
     "home.filterSeeder": "Seeder",
     "home.filterBaler": "Baler",
     "home.filterHarvester": "Harvester",
     "home.available": "Available Machines",
     "home.bookNow": "Book Now",
+    "home.listening": "Listening...",
+    "home.recommendTitle": "Need a Recommendation?",
+    "home.recommendPlaceholder": "Describe your task (e.g., 'plough 5 acres')",
+    "home.getRecommendations": "Get Recommendations",
+    "home.clearRecommendations": "Back to Browse All Machines",
+    "home.speakLabel": "Speak your requirement",
+    "home.faqTitle": "Common Questions (Examples)",
+
+
+    // Loader & Errors
+    "loader.analyzing": "Analyzing your requirement...",
+    "error.noSpeechApi": "Voice search is not supported on this browser.",
+    "error.noSpeech": "Sorry, I didn't catch that. Please try again.",
+    "error.noMatch": "No demo machines found for your request.",
+
+    // FAQ Answers
+    "faq.answer.harvest": "For harvesting, you typically need a Combine Harvester or sometimes a Reaper Binder. You can ask: 'Show harvesters'.",
+    "faq.answer.sowing": "For wheat sowing, a Tractor + Seed Drill combination is commonly used. Try asking: 'Need machine for sowing'.",
+    "faq.answer.plough": "For ploughing, especially paddy fields, a Tractor with a Plough or Rotavator is suitable. Ask: 'Machine for ploughing'.",
+    "faq.answer.spray": "For spraying, you can use various Sprayers like Boom Sprayers. Ask: 'Spraying machine'.",
+    "faq.answer.tillage": "For tillage (soil preparation), a Tractor combined with a Plough, Rotavator, or Cultivator is effective. Try asking: 'Tillage equipment'.",
+    "faq.answer.threshing": "For threshing (separating grain), a Thresher machine is needed. Ask: 'Thresher machine'.",
+    "faq.answer.weeding": "For weed removal in fields like soyabean, a Cultivator can be used for inter-row weeding. Ask: 'Weed removal machine'.",
+    "faq.answer.reaper": "To cut and bind crops like paddy or wheat simultaneously, a Reaper Binder is used. Ask: 'Reaper machine'.",
 
     // Machine Details
     "machine.details": "Machine Details",
@@ -218,13 +246,37 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Home
     "home.title": "स्मार्ट CRM",
-    "home.search": "मशीन का प्रकार या नजदीकी CHC खोजें",
+    "home.search": "मशीन का प्रकार या नजदीकी CHC खोजें", // Note: Might be deprecated
     "home.filterAll": "सभी मशीनें",
     "home.filterSeeder": "सीडर",
     "home.filterBaler": "बेलर",
     "home.filterHarvester": "हार्वेस्टर",
     "home.available": "उपलब्ध मशीनें",
     "home.bookNow": "अभी बुक करें",
+    "home.listening": "सुन रहा है...",
+    "home.recommendTitle": "सिफ़ारिश चाहिए?",
+    "home.recommendPlaceholder": "अपना कार्य बताएं (जैसे '5 एकड़ जोतना है')",
+    "home.getRecommendations": "सिफ़ारिशें प्राप्त करें",
+    "home.clearRecommendations": "सभी मशीनें ब्राउज़ करने पर वापस जाएं",
+    "home.speakLabel": "अपनी आवश्यकता बोलें",
+    "home.faqTitle": "सामान्य प्रश्न (उदाहरण)",
+
+
+    // Loader & Errors
+    "loader.analyzing": "आपकी आवश्यकता का विश्लेषण किया जा रहा है...",
+    "error.noSpeechApi": "वॉयस सर्च इस ब्राउज़र पर समर्थित नहीं है।",
+    "error.noSpeech": "क्षमा करें, मैं समझ नहीं पाया। कृपया पुनः प्रयास करें।",
+    "error.noMatch": "आपके अनुरोध के लिए कोई डेमो मशीन नहीं मिली।",
+
+    // FAQ Answers
+    "faq.answer.harvest": "कटाई के लिए, आपको आम तौर पर कंबाइन हार्वेस्टर या कभी-कभी रीपर बाइंडर की आवश्यकता होती है। आप पूछ सकते हैं: 'हार्वेस्टर दिखाओ'।",
+    "faq.answer.sowing": "गेहूं की बुआई के लिए, ट्रैक्टर + सीड ड्रिल का संयोजन आमतौर पर उपयोग किया जाता है। पूछने का प्रयास करें: 'बुआई के लिए मशीन चाहिए'।",
+    "faq.answer.plough": "जुताई के लिए, विशेष रूप से धान के खेतों में, हल या रोटावेटर वाला ट्रैक्टर उपयुक्त होता है। पूछें: 'जुताई के लिए मशीन'।",
+    "faq.answer.spray": "छिड़काव के लिए, आप बूम स्प्रेयर जैसे विभिन्न स्प्रेयर का उपयोग कर सकते हैं। पूछें: 'स्प्रे करने वाली मशीन'।",
+    "faq.answer.tillage": "जुताई (मिट्टी तैयार करने) के लिए, हल, रोटावेटर, या कल्टीवेटर के साथ ट्रैक्टर प्रभावी होता है। पूछने का प्रयास करें: 'जुताई उपकरण'।",
+    "faq.answer.threshing": "गहाई (अनाज अलग करने) के लिए, थ्रेशर मशीन की आवश्यकता होती है। पूछें: 'थ्रेशर मशीन'।",
+    "faq.answer.weeding": "सोयाबीन जैसे खेतों में खरपतवार हटाने के लिए, कल्टीवेटर का उपयोग पंक्तियों के बीच निराई के लिए किया जा सकता है। पूछें: 'खरपतवार हटाने की मशीन'।",
+    "faq.answer.reaper": "धान या गेहूं जैसी फसलों को एक साथ काटने और बांधने के लिए, रीपर बाइंडर का उपयोग किया जाता है। पूछें: 'रीपर मशीन'।",
 
     // Machine Details
     "machine.details": "मशीन विवरण",
